@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+      integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        channelHead();
+      });
+
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const channelName = urlParams.get('channel');
+
+      function channelHead() {
+        if (channelName === "node") {
+          name = 'NODE.JS';
+        } else {
+          name = channelName.toUpperCase();
+        }
+        $('#channelHeader').empty();
+        let headTempHtml = `<h1
+                              class = "writeHead"
+                              onclick="location.href='/${channelName}'"
+                            >
+                            ${name} 채널
+                            </h1>`;
+        $('#channelHeader').append(headTempHtml);
+      }
+
+      function writePost(){
+        getSelf();
+        
+      }
+
+      function getSelf(callback) {
+      $.ajax({
+        type: "GET",
+        url: "/users/info",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        success: function (response) {
+          getPostData(response.user);
+        },
+      });
+    }  
+
+      function getPostData(user) {
+        let title = $('#title').val();
+        let context = $('#context').val();
+        let userId = user.id;
+        let nickname = user.nickname;
+
+        $.ajax({
+          type: 'POST',
+          url: '/posts/write',
+          data: {
+            title : title,
+            context : context,
+            channel : channelName,
+            userId : userId,
+            nickname : nickname
+          },
+          success: function (response) {
+              alert('쓰기완료');
+              window.location.href = `/${channelName}`;
+          },
+          error: function (error) {
+            alert(error.responseJSON.errorMessage);
+          },
+        });
+      }
+    </script>
+    <title>제목으로 바꿔</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./mystyle.css" />
+  </head>
+  <body bgcolor="rgb(21,115,149)">
+    <div class="listWrap">
+      <div id="channelHeader">
+        <h1 class="nodeHead" onclick="location.href='node.html'">
+          NODE.JS 채널
+        </h1>
+      </div>
+      <div style="border-top: 2px dashed azure; width: 1060px">
+        <input
+          id = "title"
+          style="
+            color: azure;
+            background-color: transparent;
+            border: transparent;
+            width: 1050px;
+            height: 50px;
+            margin-top: 30px;
+            font-size: 30px;
+            font-family: Sam3KRFont;
+          "
+          placeholder="Title"
+        />
+        <textarea
+          id = "context"
+          type="text"
+          style="
+            color: azure;
+            background-color: transparent;
+            border: transparent;
+            width: 1050px;
+            height: 300px;
+            margin-top: 30px;
+            font-size: 20px;
+            font-family: Sam3KRFont;
+          "
+          placeholder="Context"
+        ></textarea>
+        <div style="text-align: right; margin-top: 20px">
+          <button onclick="location.href=`/${channelName}`">취소</button>
+          <button onclick="writePost()">저장</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="alertBox"></div>
+  </body>
+</html>

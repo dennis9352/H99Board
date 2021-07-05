@@ -1,0 +1,186 @@
+@font-face {
+  font-family: 'Sam3KRFont';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Sam3KRFont.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.fontColor {
+  color: #fdfdfd;
+}
+
+.homeBox {
+  width: 50px;
+  height: 30px;
+  padding-bottom: 10px;
+  border: 2px dashed azure;
+  display: block;
+  position: absolute;
+  margin-left: 250px;
+  top: 0px;
+  margin-top: 105px;
+  cursor: pointer;
+}
+
+.loginBox {
+  width: 200px;
+  height: 50px;
+  border: 2px dashed azure;
+  display: block;
+  position: absolute;
+  margin-left: 70px;
+  top: 0px;
+  margin-top: 261px;
+  cursor: pointer;
+}
+
+.loginBox2 {
+  width: 200px;
+  height: 50px;
+  border: 2px dashed azure;
+  display: block;
+  position: absolute;
+  margin-left: 70px;
+  top: 0px;
+  margin-top: 331px;
+  cursor: pointer;
+}
+
+.regiWrap {
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto;
+  margin-top: 100px;
+}
+
+.regiBox {
+  border: 10px, azure;
+  margin-top: 150px;
+  text-align: center;
+}
+
+.listWrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 10px auto;
+  margin-top: 100px;
+}
+
+.lanBox {
+  width: 350px;
+  height: 500px;
+  margin: 10px;
+  border: 2px dashed azure;
+  display: inline-block;
+  position: relative;
+}
+
+.chatBox {
+  width: 1110px;
+  height: 300px;
+  margin-left: 10px;
+  border: 2px dashed azure;
+}
+
+.alertBox {
+  width: 300px;
+  height: 500px;
+  border: 2px dashed azure;
+  display: block;
+  position: fixed;
+  margin-left: 1530px;
+  top: 0px;
+  margin-top: 150px;
+}
+
+.nodeEachPost {
+  border-top: 2px dashed rgb(49, 49, 49);
+  text-decoration: none;
+  color: azure;
+  height: 30px;
+  padding-top: 5px;
+}
+.reactEachPost {
+  border-top: 2px dashed rgb(49, 49, 49);
+  text-decoration: none;
+  color: azure;
+  height: 30px;
+  padding-top: 5px;
+}
+.springEachPost {
+  border-top: 2px dashed rgb(49, 49, 49);
+  text-decoration: none;
+  color: azure;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.nodeEachPost:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  cursor: pointer;
+  border-top: 2px dashed rgb(255, 255, 255);
+}
+.reactEachPost:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  cursor: pointer;
+  border-top: 2px dashed rgb(255, 255, 255);
+}
+.springEachPost:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  cursor: pointer;
+  border-top: 2px dashed rgb(255, 255, 255);
+}
+
+.writeBtn {
+  float: right;
+  margin-right: 150px;
+  margin-top: 10px;
+}
+
+.writeHead {
+  color: rgb(255, 255, 255);
+  text-align: left;
+  cursor: pointer;
+  width: 300px;
+  font-family: Sam3KRFont;
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.pastCommentUser {
+  color: azure;
+  background-color: transparent;
+  border: transparent;
+  width: 1050px;
+  height: 30px;
+  border: 2px dashed rgb(213, 216, 9);
+  border-bottom: transparent;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-family: Sam3KRFont;
+}
+.pastCommentContext {
+  color: azure;
+  background-color: transparent;
+  border: transparent;
+  width: 1050px;
+  height: 40px;
+  font-size: 18px;
+  font-family: Sam3KRFont;
+  border: 2px dashed rgb(0, 0, 0);
+  padding-top: 20px;
+  padding-left: 10px;
+}
